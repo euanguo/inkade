@@ -1,0 +1,109 @@
+@import "tailwindcss";
+@import "@inkade/ui/styles.css";
+@import "@inkade/views/calendar-skeleton.css";
+@import "@inkade/views/calendar-palette.css";
+@import "@inkade/views/calendar-theme.css";
+
+@source "../../../packages/ui/src";
+@source "../../../packages/views/src";
+@source "./";
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    overscroll-behavior-y: contain;
+  }
+}
+
+.safe-area-bottom {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0px));
+}
+
+html[data-mobile-shell="native"] .inkade-shell-root,
+html[data-embed="true"] .inkade-shell-root {
+  height: 100%;
+}
+
+html[data-mobile-shell="native"] .safe-area-bottom {
+  padding-bottom: 0.25rem;
+}
+
+html[data-density="compact"] {
+  font-size: 15px;
+}
+
+html[data-embed="true"][data-density="compact"] .inkade-shell-root header {
+  min-height: 2.35rem;
+}
+
+/* FullCalendar v7 Inkade 4-Theme Surface Adaptation (Paper, Night, Slate, Sepia) */
+.inkade-fc-container {
+  --fc-classic-background: var(--card);
+  --fc-classic-foreground: var(--foreground);
+  --fc-classic-muted: var(--muted-foreground);
+  --fc-classic-faint: color-mix(in srgb, var(--muted) 70%, transparent);
+  --fc-classic-border: var(--border);
+  --fc-classic-primary: var(--primary);
+  --fc-classic-now: var(--primary);
+  --fc-classic-today: color-mix(in srgb, var(--primary) 8%, transparent);
+  --fc-classic-event: color-mix(in srgb, var(--primary) 13%, var(--card));
+  --fc-classic-event-contrast: var(--foreground);
+  --fc-event-contrast-color: var(--foreground);
+  --fc-classic-background-event: color-mix(in srgb, var(--muted) 65%, transparent);
+}
+
+.inkade-fc-container .fc-event {
+  border-radius: 0.45rem;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  cursor: pointer;
+}
+
+.inkade-fc-container .inkade-fc-task-event {
+  background-color: color-mix(in srgb, var(--primary) 13%, var(--card));
+  border: 1px solid color-mix(in srgb, var(--border) 88%, var(--foreground) 14%);
+  border-left-width: 3px;
+  color: var(--foreground);
+}
+
+.inkade-fc-container .inkade-fc-task-event * {
+  color: var(--foreground);
+}
+
+.inkade-fc-container .inkade-fc-external-event {
+  border-left-width: 3px;
+  border-style: solid;
+  opacity: 0.85;
+  cursor: default;
+}
+
+.inkade-fc-container .fc-timegrid-slot {
+  height: 2.1rem;
+}
+
+.inkade-fc-container .fc-R7 {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.inkade-fc-container [data-today="true"],
+.inkade-fc-container .fc-day-today {
+  background-color: color-mix(in srgb, var(--primary) 6%, transparent);
+}
+
+.inkade-fc-container .fc-classic-JIC.fc-classic-k3f {
+  padding-bottom: 0;
+  border-bottom: 0;
+  background-color: transparent;
+}

@@ -1,0 +1,60 @@
+/*
+ * Host ADE Theme Bridge
+ * Allows host shells (BB, Paseo, Cindy, or embedded webviews) to pass native
+ * surface, text, border, accent, and typography tokens into Inkade UI components
+ * without replacing cosscom/ui semantics.
+ */
+
+[data-inkade-host],
+.inkade-host-bridge {
+  --background: var(--inkade-host-bg, var(--bb-bg, var(--host-bg, var(--background))));
+  --foreground: var(--inkade-host-fg, var(--bb-fg, var(--host-fg, var(--foreground))));
+  --card: var(--inkade-host-card, var(--bb-surface, var(--host-surface, var(--card))));
+  --card-foreground: var(
+    --inkade-host-fg,
+    var(--bb-fg, var(--host-fg, var(--card-foreground)))
+  );
+  --popover: var(
+    --inkade-host-popover,
+    var(--bb-elevated, var(--host-elevated, var(--popover)))
+  );
+  --popover-foreground: var(
+    --inkade-host-fg,
+    var(--bb-fg, var(--host-fg, var(--popover-foreground)))
+  );
+  --sidebar: var(
+    --inkade-host-sidebar,
+    var(--bb-sidebar-bg, var(--host-sidebar-bg, var(--sidebar)))
+  );
+  --sidebar-foreground: var(
+    --inkade-host-sidebar-fg,
+    var(--bb-sidebar-fg, var(--host-sidebar-fg, var(--sidebar-foreground)))
+  );
+  --sidebar-border: var(
+    --inkade-host-border,
+    var(--bb-border, var(--host-border, var(--sidebar-border)))
+  );
+  --border: var(--inkade-host-border, var(--bb-border, var(--host-border, var(--border))));
+  --input: var(--inkade-host-input, var(--bb-border, var(--host-border, var(--input))));
+  --muted-foreground: var(
+    --inkade-host-muted-fg,
+    var(--bb-muted-fg, var(--host-muted-fg, var(--muted-foreground)))
+  );
+  --primary: var(--inkade-host-primary, var(--bb-accent, var(--host-accent, var(--primary))));
+  --primary-foreground: var(
+    --inkade-host-primary-fg,
+    var(--bb-accent-fg, var(--host-accent-fg, var(--primary-foreground)))
+  );
+  --brand-subtle: var(
+    --inkade-host-brand-subtle,
+    color-mix(in srgb, var(--primary) 12%, transparent)
+  );
+  --brand-subtle-foreground: var(--inkade-host-brand-subtle-fg, var(--primary));
+  --ring: var(--inkade-host-ring, var(--bb-ring, var(--host-ring, var(--ring))));
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-ring: var(--ring);
+  --code: var(--inkade-host-code, var(--bb-code-bg, var(--host-code-bg, var(--code))));
+  --font-sans: var(--inkade-host-font-sans, var(--bb-font-sans, var(--font-sans)));
+  --font-mono: var(--inkade-host-font-mono, var(--bb-font-mono, var(--font-mono)));
+}

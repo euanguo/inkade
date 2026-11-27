@@ -1,0 +1,72 @@
+{
+  "name": "@inkade/views",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./context": "./src/context.tsx",
+    "./components/DispatchAdeDialog": "./src/components/DispatchAdeDialog.tsx",
+    "./components/ViewSkeletons": "./src/components/ViewSkeletons.tsx",
+    "./components/WorkspaceSplitPane": "./src/components/WorkspaceSplitPane.tsx",
+    "./lib/daily-studio": "./src/lib/daily-studio.ts",
+    "./lib/dates": "./src/lib/dates.ts",
+    "./lib/inbox-local-state": "./src/lib/inbox-local-state.ts",
+    "./lib/mcp-snippet": "./src/lib/mcp-snippet.ts",
+    "./lib/preferences-store": "./src/lib/preferences-store.ts",
+    "./lib/workspace-tabs-store": "./src/lib/workspace-tabs-store.ts",
+    "./lib/shortcuts": "./src/lib/shortcuts.ts",
+    "./lib/super-command-parser": "./src/lib/super-command-parser.ts",
+    "./lib/typed-properties": "./src/lib/typed-properties.ts",
+    "./lib/use-list-virtualizer": "./src/lib/use-list-virtualizer.ts",
+    "./calendar-skeleton.css": "./node_modules/@fullcalendar/react/skeleton.css",
+    "./calendar-palette.css": "./node_modules/@fullcalendar/react/themes/classic/palette.css",
+    "./calendar-theme.css": "./node_modules/@fullcalendar/react/themes/classic/theme.css",
+    "./views/DailyOutlineView": "./src/views/DailyOutlineView.tsx",
+    "./views/DocumentDetailView": "./src/views/DocumentDetailView.tsx",
+    "./views/DocumentListView": "./src/views/DocumentListView.tsx",
+    "./views/InboxView": "./src/views/InboxView.tsx",
+    "./views/inbox": "./src/views/InboxView.tsx",
+    "./views/SpaceTreeView": "./src/views/SpaceTreeView.tsx",
+    "./views/TasksView": "./src/views/TasksView.tsx",
+    "./views/ThreadsView": "./src/views/ThreadsView.tsx"
+  },
+  "dependencies": {
+    "@fullcalendar/react": "^7.1.5",
+    "@hookform/resolvers": "^7.0.9",
+    "@inkade/core": "workspace:*",
+    "@inkade/i18n": "workspace:*",
+    "@inkade/sdk": "workspace:*",
+    "@inkade/ui": "workspace:*",
+    "@tanstack/react-table": "^8.21.3",
+    "@tanstack/react-virtual": "^3.13.0",
+    "date-fns": "^4.1.0",
+    "lucide-react": "^1.78.0",
+    "papaparse": "^5.7.1",
+    "react-hook-form": "^7.92.0",
+    "react-resizable-panels": "^4.24.2",
+    "temporal-polyfill": "^1.0.8",
+    "tinykeys": "^3.0.0",
+    "usehooks-ts": "^3.1.1",
+    "zod": "^4.6.0",
+    "zustand": "^5.1.0"
+  },
+  "peerDependencies": {
+    "@tanstack/react-query": "^5.75.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@tanstack/react-query": "^5.75.0",
+    "@types/papaparse": "^5.5.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "tsc -p tsconfig.json --noEmit"
+  }
+}

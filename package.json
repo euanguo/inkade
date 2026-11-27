@@ -1,0 +1,42 @@
+{
+  "name": "inkade",
+  "private": true,
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "bun@1.3.14",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:server": "bun --watch apps/server/src/index.ts",
+    "dev:web": "bun run --filter @inkade/web dev",
+    "start": "bun apps/server/src/index.ts",
+    "typecheck": "bun run --filter '*' typecheck",
+    "test": "bun test",
+    "build": "bun run --filter '*' build",
+    "build:plugins": "bun run scripts/build-ade-plugins.mjs",
+    "build:web": "bun run --filter @inkade/web build",
+    "lint": "eslint .",
+    "check:i18n": "bun run scripts/check-i18n.ts",
+    "check:licenses": "bun run scripts/check-licenses.ts",
+    "check:motion": "bun run scripts/check-motion.ts",
+    "verify:e2e": "bun run --filter @inkade/server verify:e2e",
+    "test:e2e": "playwright test -c e2e/playwright.config.ts",
+    "db:reset": "bun run scripts/db-reset-or-migrate.ts --mode=reset",
+    "db:migrate": "bun run scripts/db-reset-or-migrate.ts --mode=migrate-data"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/bun": "^1.3.0",
+    "@typescript-eslint/parser": "^8.50.0",
+    "eslint": "^9.39.0",
+    "eslint-import-resolver-typescript": "^4.4.5",
+    "eslint-plugin-boundaries": "^7.4.4",
+    "eslint-plugin-i18next": "^6.1.3",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.74.0"
+  }
+}

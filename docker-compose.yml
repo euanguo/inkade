@@ -1,0 +1,32 @@
+services:
+  inkade:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: inkade:latest
+    container_name: inkade
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3456}:3456"
+    environment:
+      NODE_ENV: production
+      PORT: "3456"
+      HOST: "0.0.0.0"
+      INKADE_DB_PATH: /data/inkade.db
+      INKADE_DATA_DIR: /data
+      INKADE_AUTH_SECRET: ${INKADE_AUTH_SECRET:-change-me-in-production-min-32-chars}
+      INKADE_BASE_URL: ${INKADE_BASE_URL:-http://localhost:3456}
+      INKADE_APP_ORIGIN: ${INKADE_APP_ORIGIN:-}
+      INKADE_SANDBOX_ORIGIN: ${INKADE_SANDBOX_ORIGIN:-}
+      INKADE_SANDBOX_SAME_SITE: ${INKADE_SANDBOX_SAME_SITE:-false}
+      INKADE_TRUSTED_ORIGINS: ${INKADE_TRUSTED_ORIGINS:-}
+      INKADE_CORS_ORIGINS: ${INKADE_CORS_ORIGINS:-}
+      INKADE_FRAME_ANCESTORS: ${INKADE_FRAME_ANCESTORS:-}
+      INKADE_ALLOW_SIGNUP: ${INKADE_ALLOW_SIGNUP:-false}
+      INKADE_LOCAL_AUTO_AUTH: ${INKADE_LOCAL_AUTO_AUTH:-false}
+      INKADE_WEB_DIST_DIR: /app/apps/web/dist
+    volumes:
+      - inkade_data:/data
+
+volumes:
+  inkade_data:

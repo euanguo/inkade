@@ -1,0 +1,21 @@
+{
+  "name": "@inkade/cli",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "inkade": "./dist/inkade-bridge.mjs"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@inkade/core": "workspace:*",
+    "@inkade/sdk": "workspace:*"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "bun build src/index.ts --outfile dist/inkade-bridge.mjs --target node --format esm"
+  }
+}

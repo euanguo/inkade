@@ -1,0 +1,124 @@
+{
+  "name": "inkade",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Local-First Knowledge OS companion plugins (MCP bridge, wake hooks, monitors, and skills) across multiple ADE hosts.",
+  "repository": "https://github.com/inkade/inkade",
+  "binarySource": "packages/cli/dist/inkade-bridge.mjs",
+  "binaryTargetRelPath": "skills/inkade/bin/inkade-bridge.mjs",
+  "harnesses": [
+    {
+      "id": "claude-code",
+      "profileName": "claude-code",
+      "displayName": "Claude Code",
+      "description": "Inkade companion plugin for Claude Code with MCP bridge, lifecycle wake hooks, and SSE monitor.",
+      "manifestPath": ".claude-plugin/plugin.json",
+      "mcpConfigPath": ".mcp.json",
+      "mcpFormat": "mcpServers",
+      "hooksConfigPath": "hooks/hooks.json",
+      "hooksFormat": "claude-code",
+      "hookEvents": ["SessionStart", "UserPromptSubmit", "PostToolUse", "Stop"],
+      "monitorsConfigPath": "monitors/monitors.json",
+      "commandPrefix": "${CLAUDE_PLUGIN_ROOT}"
+    },
+    {
+      "id": "codex",
+      "profileName": "codex",
+      "displayName": "Codex",
+      "description": "Inkade companion plugin for Codex with MCP bridge, wake hooks, and codex queue nudge alignment.",
+      "manifestPath": "plugin.json",
+      "mcpConfigPath": "mcp.json",
+      "mcpFormat": "mcpServers",
+      "hooksConfigPath": "hooks/hooks.json",
+      "hooksFormat": "claude-code",
+      "hookEvents": ["SessionStart", "UserPromptSubmit", "PostToolUse", "Stop"],
+      "commandPrefix": "."
+    },
+    {
+      "id": "cursor",
+      "profileName": "cursor",
+      "displayName": "Cursor",
+      "description": "Inkade companion plugin for Cursor with MCP bridge and sessionStart/postToolUse/stop hooks.",
+      "manifestPath": ".cursor-plugin/plugin.json",
+      "mcpConfigPath": "mcp.json",
+      "mcpFormat": "mcpServers",
+      "hooksConfigPath": "hooks/hooks.json",
+      "hooksFormat": "cursor",
+      "hookEvents": ["sessionStart", "postToolUse", "stop"],
+      "commandPrefix": "."
+    },
+    {
+      "id": "copilot",
+      "profileName": "copilot",
+      "displayName": "GitHub Copilot",
+      "description": "Inkade companion plugin for GitHub Copilot with MCP bridge and userPromptTransformed/agentStop hooks.",
+      "manifestPath": "plugin.json",
+      "mcpConfigPath": ".mcp.json",
+      "mcpFormat": "mcpServers",
+      "hooksConfigPath": "hooks/hooks.json",
+      "hooksFormat": "copilot",
+      "hookEvents": ["sessionStart", "userPromptTransformed", "agentStop"],
+      "commandPrefix": "."
+    },
+    {
+      "id": "antigravity",
+      "profileName": "antigravity",
+      "displayName": "Antigravity",
+      "description": "Inkade companion plugin for Antigravity with MCP bridge, injectSteps hooks, and agentapi nudge integration.",
+      "manifestPath": "plugin.json",
+      "mcpConfigPath": "mcp_config.json",
+      "mcpFormat": "mcpServers",
+      "hooksConfigPath": "hooks.json",
+      "hooksFormat": "antigravity",
+      "hookEvents": ["SessionStart", "PreInvocation", "PostToolUse", "Stop"],
+      "commandPrefix": "."
+    },
+    {
+      "id": "opencode",
+      "profileName": "opencode",
+      "displayName": "OpenCode",
+      "description": "Inkade companion plugin for OpenCode with local MCP bridge and wake hooks.",
+      "manifestPath": "plugin.json",
+      "mcpConfigPath": "opencode.json",
+      "mcpFormat": "opencode",
+      "hooksConfigPath": "hooks/hooks.json",
+      "hooksFormat": "claude-code",
+      "hookEvents": ["SessionStart", "Stop"],
+      "commandPrefix": "."
+    },
+    {
+      "id": "pi",
+      "profileName": "pi",
+      "displayName": "Pi",
+      "description": "Inkade companion extension for Pi with MCP bridge and CLI integration.",
+      "manifestPath": "plugin.json",
+      "mcpConfigPath": "mcp.json",
+      "mcpFormat": "mcpServers",
+      "extensionPath": "extensions/inkade.mjs",
+      "hookEvents": [],
+      "commandPrefix": "."
+    }
+  ],
+  "marketplaces": [
+    {
+      "path": ".claude-plugin/marketplace.json",
+      "schema": "claude-code",
+      "pluginIds": ["claude-code"]
+    },
+    {
+      "path": ".agents/plugins/marketplace.json",
+      "schema": "agents",
+      "pluginIds": ["claude-code", "codex", "cursor", "copilot", "antigravity", "opencode", "pi"]
+    },
+    {
+      "path": ".cursor-plugin/marketplace.json",
+      "schema": "cursor",
+      "pluginIds": ["cursor"]
+    },
+    {
+      "path": ".github/plugin/marketplace.json",
+      "schema": "copilot",
+      "pluginIds": ["copilot"]
+    }
+  ]
+}

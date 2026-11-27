@@ -1,0 +1,128 @@
+@import "tailwindcss";
+@import "@inkade/ui/styles.css";
+
+@source "../../../../packages/ui/src/primitives/*.tsx";
+@source "../../../../packages/ui/src/lib/*.ts";
+@source "./**/*.{ts,tsx}";
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--studio-ground);
+    color: var(--foreground);
+    font-family: "Inter", "PingFang SC", "Noto Sans SC", system-ui, -apple-system, sans-serif;
+    font-size: 13px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .popup-shell {
+    width: 400px;
+    min-height: 400px;
+    max-height: 590px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sidepanel-shell {
+    width: 100%;
+    min-height: 100vh;
+    padding: 12px 14px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .options-shell {
+    max-width: 960px;
+    margin: 24px auto;
+    padding: 0 20px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ink-badge.ok {
+    border-color: color-mix(in srgb, var(--success) 26%, transparent);
+    background: color-mix(in srgb, var(--success) 10%, transparent);
+    color: var(--success-foreground);
+  }
+
+  .ink-badge.warn {
+    border-color: color-mix(in srgb, var(--destructive) 28%, transparent);
+    background: color-mix(in srgb, var(--destructive) 10%, transparent);
+    color: var(--destructive-foreground);
+  }
+
+  .ink-badge.amber {
+    border-color: color-mix(in srgb, var(--warning) 28%, transparent);
+    background: color-mix(in srgb, var(--warning) 12%, transparent);
+    color: var(--warning-foreground);
+  }
+
+  .ink-quote-preview {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: var(--radius-md);
+    corner-shape: var(--corner-shape, superellipse(1.5));
+    border: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
+    padding: 7px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--foreground);
+    background: color-mix(in srgb, var(--muted) 75%, transparent);
+    max-height: 76px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ink-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    border-radius: var(--radius);
+    corner-shape: var(--corner-shape, superellipse(1.5));
+    border: 1px solid var(--border-overlay);
+    background: var(--card);
+    padding: 8px 10px;
+    font-size: 12px;
+    line-height: 1.4;
+    box-shadow: var(--shadow-control);
+  }
+
+  .ink-status.success {
+    border-color: color-mix(in srgb, var(--success) 32%, transparent);
+    background: color-mix(in srgb, var(--success) 10%, var(--card));
+    color: var(--success-foreground);
+  }
+
+  .ink-status.error {
+    border-color: color-mix(in srgb, var(--destructive) 34%, transparent);
+    background: color-mix(in srgb, var(--destructive) 10%, var(--card));
+    color: var(--destructive-foreground);
+  }
+
+  .ink-search-snippet mark {
+    border-radius: 3px;
+    background: color-mix(in srgb, var(--warning) 24%, transparent);
+    color: inherit;
+    padding: 0 2px;
+  }
+}

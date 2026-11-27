@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <clipPath id="squircle">
+      <rect width="512" height="512" rx="115" />
+    </clipPath>
+    <linearGradient id="bgGrad" x1="40" y1="480" x2="460" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2E2A7C" />
+      <stop offset="55%" stop-color="#4338CA" />
+      <stop offset="100%" stop-color="#5B54F5" />
+    </linearGradient>
+    <radialGradient id="nibGlow" cx="390" cy="126" r="142" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E0E7FF" stop-opacity="0.65" />
+      <stop offset="40%" stop-color="#818CF8" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#4F46E5" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="catGrad" x1="80" y1="500" x2="360" y2="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0D0F18" />
+      <stop offset="68%" stop-color="#151826" />
+      <stop offset="100%" stop-color="#252840" />
+    </linearGradient>
+    <linearGradient id="earGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9692FF" />
+      <stop offset="100%" stop-color="#6366F1" />
+    </linearGradient>
+    <radialGradient id="irisGrad" cx="45%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#4338CA" />
+      <stop offset="65%" stop-color="#1E1B6E" />
+      <stop offset="100%" stop-color="#110E40" />
+    </radialGradient>
+  </defs>
+
+  <g clip-path="url(#squircle)">
+    <rect width="512" height="512" fill="url(#bgGrad)" />
+    <circle cx="390" cy="126" r="142" fill="url(#nibGlow)" />
+
+    <!-- Cat Silhouette -->
+    <path
+      d="M -20 530 L -20 315 C -2 248 48 166 86 149 C 110 138 148 188 176 245 C 218 242 254 252 282 280 C 330 258 380 245 400 256 C 420 268 410 342 387 408 C 402 454 405 495 402 530 Z"
+      fill="url(#catGrad)"
+      stroke="#313554"
+      stroke-width="4"
+    />
+
+    <!-- Inner Ears -->
+    <path
+      d="M 28 282 C 42 224 68 184 88 172 C 106 168 128 206 144 246 C 102 252 60 264 28 282 Z"
+      fill="url(#earGrad)"
+    />
+    <path
+      d="M 310 293 C 344 278 370 272 384 276 C 394 286 388 334 374 376 C 358 340 336 312 310 293 Z"
+      fill="url(#earGrad)"
+    />
+
+    <!-- Left Eye -->
+    <ellipse cx="116" cy="346" rx="55" ry="50" transform="rotate(-10 116 346)" fill="#FEF8EC" />
+    <circle cx="131" cy="340" r="34" fill="url(#irisGrad)" />
+    <circle cx="136" cy="336" r="22" fill="#090A1A" />
+    <circle cx="147" cy="322" r="9.5" fill="#FFFFFF" />
+
+    <!-- Right Eye -->
+    <ellipse cx="292" cy="392" rx="46" ry="44" transform="rotate(8 292 392)" fill="#FEF8EC" />
+    <circle cx="305" cy="385" r="29" fill="url(#irisGrad)" />
+    <circle cx="309" cy="381" r="18.5" fill="#090A1A" />
+    <circle cx="318" cy="369" r="8" fill="#FFFFFF" />
+
+    <!-- Tiny Nose -->
+    <path
+      d="M 186 392 C 186 388 214 388 214 392 C 214 398 205 410 200 410 C 195 410 186 398 186 392 Z"
+      fill="#6366D9"
+    />
+
+    <!-- Glowing Fountain Pen Nib (clean single keyhole-slit path pointing down-left) -->
+    <g transform="translate(390, 126) rotate(222)">
+      <rect x="-28" y="48" width="56" height="20" rx="6" fill="#FFFFFF" />
+      <path
+        d="M -2.8 -75 L -2.8 -19.6 A 10 10 0 1 0 2.8 -19.6 L 2.8 -75 C 14 -45 27 -31 43 -16 L 26 40 L -26 40 L -43 -16 C -27 -31 -14 -45 -2.8 -75 Z"
+        fill="#FFFFFF"
+      />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,90 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1795597514262,
+      "tag": "0000_init",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1795597537854,
+      "tag": "0001_fts5",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1795611823363,
+      "tag": "0002_v6_phase40_quiet_autonomy",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1795615428473,
+      "tag": "0003_v6_phase41_tasks",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1795615791886,
+      "tag": "0004_v6_phase42_schema_views",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1795618359564,
+      "tag": "0005_v6_phase43_rag_packs",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1795621125026,
+      "tag": "0006_v6_phase44_ingest_pdf",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1795622000000,
+      "tag": "0007_v6_phase45_garden",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "6",
+      "when": 1795623000000,
+      "tag": "0008_v6_phase46_briefings",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "6",
+      "when": 1795624000000,
+      "tag": "0009_v7_phase48_wake_routing",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "6",
+      "when": 1795625000000,
+      "tag": "0010_v7_phase49_comment_threads",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "6",
+      "when": 1795626000000,
+      "tag": "0011_v7_phase51_document_artifacts",
+      "breakpoints": true
+    }
+  ]
+}

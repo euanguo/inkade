@@ -1,0 +1,23 @@
+[package]
+name = "inkade-desktop"
+version = "0.1.0"
+description = "Inkade Tauri v2 desktop wrapper with global quick capture, tray attention badge, and inkade:// deep links."
+authors = ["Inkade Contributors"]
+license = "MIT"
+edition = "2021"
+
+[lib]
+name = "inkade_desktop_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri = { version = "2", features = ["tray-icon"] }
+tauri-plugin-deep-link = "2"
+tauri-plugin-global-shortcut = "2"
+tauri-plugin-notification = "2"
+tauri-plugin-single-instance = "2"
