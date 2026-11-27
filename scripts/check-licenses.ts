@@ -171,8 +171,16 @@ function extractLicenseString(pkg: PackageManifest, pkgDir: string): string | nu
       return types.join(" OR ");
     }
   }
-  // Fallback: check LICENSE file header if package.json omitted `license`.
-  for (const filename of ["LICENSE", "LICENSE.md", "LICENSE.txt", "LICENCE"]) {
+  // Fallback: check LICENSE file header case-insensitively (e.g. lowercase `license` on Linux) if package.json omitted `license`.
+  let licenseFiles: string[] = [];
+  try {
+    licenseFiles = readdirSync(pkgDir).filter((name) =>
+      /^licen[cs]e(?:\.(?:md|txt))?$/i.test(name),
+    );
+  } catch {
+    licenseFiles = [];
+  }
+  for (const filename of licenseFiles) {
     const candidate = join(pkgDir, filename);
     if (existsSync(candidate)) {
       const header = readFileSync(candidate, "utf8").slice(0, 800);

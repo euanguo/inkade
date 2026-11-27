@@ -2907,7 +2907,7 @@ export const zhCN = {
     templateTesterToggleBtn: "实时测试",
     templateTesterTitle: "模板匹配与渲染实时测试",
     templateTesterLoadTabBtn: "载入当前网页",
-    templateTesterUrlPlaceholder: "https://github.com/inkade/inkade",
+    templateTesterUrlPlaceholder: "https://github.com/saywhy-dev/inkade",
     templateTesterMatchedLabel: "命中模板：{{name}}",
     templateTesterNoMatch: "未自动命中（回落默认）",
     shortcutsTitle: "浏览器快捷键",

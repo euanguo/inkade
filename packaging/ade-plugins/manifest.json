@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "description": "Local-First Knowledge OS companion plugins (MCP bridge, wake hooks, monitors, and skills) across multiple ADE hosts.",
-  "repository": "https://github.com/inkade/inkade",
+  "repository": "https://github.com/saywhy-dev/inkade",
   "binarySource": "packages/cli/dist/inkade-bridge.mjs",
   "binaryTargetRelPath": "skills/inkade/bin/inkade-bridge.mjs",
   "harnesses": [

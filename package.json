@@ -3,6 +3,11 @@
   "private": true,
   "version": "0.1.0",
   "license": "MIT",
+  "homepage": "https://github.com/saywhy-dev/inkade",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saywhy-dev/inkade.git"
+  },
   "type": "module",
   "packageManager": "bun@1.3.14",
   "workspaces": [

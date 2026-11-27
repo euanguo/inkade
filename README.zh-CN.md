@@ -17,6 +17,7 @@
 </p>
 
 <p>
+  <a href="https://github.com/saywhy-dev/inkade/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/saywhy-dev/inkade/actions/workflows/ci.yml/badge.svg" /></a>
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-blue.svg" />
   <img alt="TypeScript Strict" src="https://img.shields.io/badge/TypeScript-strict-3178C6.svg" />
   <img alt="MCP Streamable HTTP" src="https://img.shields.io/badge/MCP-Streamable%20HTTP-10b981.svg" />
@@ -141,7 +142,7 @@ apps/desktop           Tauri v2 桌面外壳与全局快记悬浮窗
 前置依赖：[Bun `>= 1.3`](https://bun.sh)
 
 ```bash
-git clone https://github.com/euanguo/inkade.git
+git clone https://github.com/saywhy-dev/inkade.git
 cd inkade
 bun install
 ```

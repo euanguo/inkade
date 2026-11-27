@@ -2924,7 +2924,7 @@ export const enUS: InkadeTranslationSchema = {
     templateTesterToggleBtn: "Test Render",
     templateTesterTitle: "Live Match & Render Tester",
     templateTesterLoadTabBtn: "Load Active Tab",
-    templateTesterUrlPlaceholder: "https://github.com/inkade/inkade",
+    templateTesterUrlPlaceholder: "https://github.com/saywhy-dev/inkade",
     templateTesterMatchedLabel: "Matched: {{name}}",
     templateTesterNoMatch: "Fallback (no trigger match)",
     shortcutsTitle: "Keyboard Shortcuts",

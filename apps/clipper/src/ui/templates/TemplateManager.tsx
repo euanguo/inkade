@@ -47,7 +47,7 @@ export function TemplateManager({ client }: TemplateManagerProps) {
   const [syncing, setSyncing] = useState(false);
   const [notice, setNotice] = useState<ClipperUiStatus | null>(null);
   const [testerOpen, setTesterOpen] = useState(false);
-  const [testUrl, setTestUrl] = useState("https://github.com/inkade/inkade");
+  const [testUrl, setTestUrl] = useState("https://github.com/saywhy-dev/inkade");
   const [testArticle, setTestArticle] = useState<ExtractedArticle | null>(null);
 
   const selected = templates.find((tpl) => tpl.id === selectedId) ?? templates[0] ?? null;
