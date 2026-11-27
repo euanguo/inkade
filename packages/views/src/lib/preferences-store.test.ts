@@ -67,14 +67,22 @@ function installMemoryDom(systemIsDark = false) {
     },
   };
 
-  Object.defineProperty(globalThis, "window", { value: mockWindow, configurable: true });
-  Object.defineProperty(globalThis, "document", { value: mockDocument, configurable: true });
+  Object.defineProperty(globalThis, "window", {
+    value: mockWindow,
+    configurable: true,
+    writable: true,
+  });
+  Object.defineProperty(globalThis, "document", {
+    value: mockDocument,
+    configurable: true,
+    writable: true,
+  });
 
   return { store, classes, dataset };
 }
 
-const originalWindow = globalThis.window;
-const originalDocument = globalThis.document;
+const originalWindowDescriptor = Object.getOwnPropertyDescriptor(globalThis, "window");
+const originalDocumentDescriptor = Object.getOwnPropertyDescriptor(globalThis, "document");
 
 beforeEach(() => {
   installMemoryDom(false);
@@ -82,8 +90,16 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  Object.defineProperty(globalThis, "window", { value: originalWindow, configurable: true });
-  Object.defineProperty(globalThis, "document", { value: originalDocument, configurable: true });
+  if (originalWindowDescriptor) {
+    Object.defineProperty(globalThis, "window", originalWindowDescriptor);
+  } else {
+    Reflect.deleteProperty(globalThis, "window");
+  }
+  if (originalDocumentDescriptor) {
+    Object.defineProperty(globalThis, "document", originalDocumentDescriptor);
+  } else {
+    Reflect.deleteProperty(globalThis, "document");
+  }
 });
 
 describe("@inkade/views unified Zustand preferences store", () => {

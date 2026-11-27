@@ -156,8 +156,8 @@ describe("settings/types helpers", () => {
 });
 
 describe("theme & V3 appearance helpers", () => {
-  const originalWindow = globalThis.window;
-  const originalDocument = globalThis.document;
+  const originalWindowDescriptor = Object.getOwnPropertyDescriptor(globalThis, "window");
+  const originalDocumentDescriptor = Object.getOwnPropertyDescriptor(globalThis, "document");
 
   function installMockDom(systemIsDark = false) {
     const store = new Map<string, string>();
@@ -210,8 +210,16 @@ describe("theme & V3 appearance helpers", () => {
       },
     };
 
-    Object.defineProperty(globalThis, "window", { value: mockWindow, configurable: true });
-    Object.defineProperty(globalThis, "document", { value: mockDocument, configurable: true });
+    Object.defineProperty(globalThis, "window", {
+      value: mockWindow,
+      configurable: true,
+      writable: true,
+    });
+    Object.defineProperty(globalThis, "document", {
+      value: mockDocument,
+      configurable: true,
+      writable: true,
+    });
 
     return { store, classes, dataset };
   }
@@ -222,8 +230,16 @@ describe("theme & V3 appearance helpers", () => {
   });
 
   afterEach(() => {
-    Object.defineProperty(globalThis, "window", { value: originalWindow, configurable: true });
-    Object.defineProperty(globalThis, "document", { value: originalDocument, configurable: true });
+    if (originalWindowDescriptor) {
+      Object.defineProperty(globalThis, "window", originalWindowDescriptor);
+    } else {
+      Reflect.deleteProperty(globalThis, "window");
+    }
+    if (originalDocumentDescriptor) {
+      Object.defineProperty(globalThis, "document", originalDocumentDescriptor);
+    } else {
+      Reflect.deleteProperty(globalThis, "document");
+    }
   });
 
   test("type guards validate ShellStyle, SurfaceTheme, ReaderFont, and ReaderMeasure", () => {

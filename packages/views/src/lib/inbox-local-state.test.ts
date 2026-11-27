@@ -10,7 +10,7 @@ interface MockEnv {
   readonly dispatchedEvents: string[];
 }
 
-const originalWindow = globalThis.window;
+const originalWindowDescriptor = Object.getOwnPropertyDescriptor(globalThis, "window");
 
 function installMockBrowserEnv(): MockEnv {
   const store = new Map<string, string>();
@@ -40,6 +40,7 @@ function installMockBrowserEnv(): MockEnv {
   Object.defineProperty(globalThis, "window", {
     value: mockWindow,
     configurable: true,
+    writable: true,
   });
 
   return { store, dispatchedEvents };
@@ -53,10 +54,11 @@ describe("inbox-local-state", () => {
   });
 
   afterEach(() => {
-    Object.defineProperty(globalThis, "window", {
-      value: originalWindow,
-      configurable: true,
-    });
+    if (originalWindowDescriptor) {
+      Object.defineProperty(globalThis, "window", originalWindowDescriptor);
+    } else {
+      Reflect.deleteProperty(globalThis, "window");
+    }
   });
 
   it("returns empty maps when storage is empty", () => {

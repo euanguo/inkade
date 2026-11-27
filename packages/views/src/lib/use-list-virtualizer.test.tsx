@@ -193,13 +193,14 @@ function make150Documents(kind: "article" | "clip", prefix: string): readonly Do
 }
 
 describe("useListVirtualizer and virtualized views", () => {
-  const originalWindow = globalThis.window;
+  const originalWindowDescriptor = Object.getOwnPropertyDescriptor(globalThis, "window");
 
   afterEach(() => {
-    Object.defineProperty(globalThis, "window", {
-      value: originalWindow,
-      configurable: true,
-    });
+    if (originalWindowDescriptor) {
+      Object.defineProperty(globalThis, "window", originalWindowDescriptor);
+    } else {
+      Reflect.deleteProperty(globalThis, "window");
+    }
   });
 
   it("window-slices large lists via fallbackRect instead of mounting all rows", () => {
@@ -223,6 +224,7 @@ describe("useListVirtualizer and virtualized views", () => {
         }),
       },
       configurable: true,
+      writable: true,
     });
 
     const viewport = {

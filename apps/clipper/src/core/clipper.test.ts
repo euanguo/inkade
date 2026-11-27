@@ -498,9 +498,10 @@ describe("@inkade/clipper Phase C1 engine", () => {
     expect(DEFAULT_CLIPPER_SETTINGS.accentPreset).toBe("mono");
 
     const store = new Map<string, string>();
-    const prevStorage = globalThis.localStorage;
+    const prevStorageDescriptor = Object.getOwnPropertyDescriptor(globalThis, "localStorage");
     Object.defineProperty(globalThis, "localStorage", {
       configurable: true,
+      writable: true,
       value: {
         getItem: (k: string) => store.get(k) ?? null,
         setItem: (k: string, v: string) => {
@@ -536,10 +537,11 @@ describe("@inkade/clipper Phase C1 engine", () => {
       expect(loaded.surfaceTheme).toBe("system");
       expect(loaded.accentPreset).toBe("mono");
     } finally {
-      Object.defineProperty(globalThis, "localStorage", {
-        configurable: true,
-        value: prevStorage,
-      });
+      if (prevStorageDescriptor) {
+        Object.defineProperty(globalThis, "localStorage", prevStorageDescriptor);
+      } else {
+        Reflect.deleteProperty(globalThis, "localStorage");
+      }
     }
   });
 });
